@@ -4,29 +4,27 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class StartSceneScript : MonoBehaviour {
-    private GameObject panelStart;
-    private GameObject panelSettings;
+    public GameObject panelStart;
+    public GameObject panelSettings;
+    public Button buttonPlay;
+    public Button buttonSettings;
 
-    private void Start()
-    {
-        panelStart = GameObject.Find("PanelStart");
-        panelSettings = GameObject.Find("PanelSettings");
-    }
-
-    public void ButtonSettings()
+    public void ButtonSettingsOnClick()
     {
         panelStart.SetActive(false);
         panelSettings.SetActive(true);
     }
 
-    public void ButtonBack()
+    public void ButtonBackOnClick()
     {
-        panelStart.SetActive(true);
         panelSettings.SetActive(false);
+        panelStart.SetActive(true);
     }
 
-    public void ButtonPlay() 
+    public void ButtonPlayOnClick() 
     {
         TKSceneManager.ChangeScene("PathScene");
     }
+
+ 
 }

@@ -85,7 +85,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\ButtonBehaviourScripts.cs" />
     <Compile Include="Assets\Scripts\PathSceneScript.cs" />
+    <Compile Include="Assets\Scripts\Sound.cs" />
+    <Compile Include="Assets\Scripts\SoundManagerScript.cs" />
     <Compile Include="Assets\Scripts\StartSceneScript.cs" />
     <Compile Include="Assets\Scripts\TKLibs\Mathfx.cs" />
     <Compile Include="Assets\Scripts\TKLibs\TKCameraResizer.cs" />
