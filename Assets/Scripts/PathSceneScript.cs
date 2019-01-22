@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class PathSceneScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public GameObject panelSettings;
+
+	public void ButtonBackClicked()
+    {
+        TKSceneManager.ChangeScene("StartScene");
+    }
+
+    public void ButtonSettingsClicked()
+    {
+        panelSettings.gameObject.SetActive(true);
+    }
+
+    public void ButtonBackInSettingsClicked()
+    {
+        panelSettings.gameObject.SetActive(false);
+    }
 }

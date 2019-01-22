@@ -1,8 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.Audio;
 
-public class ButtonBehaviourScripts : MonoBehaviour {
+
+public class ButtonBehaviourScripts : EventTrigger
+{
 
     private float resizeParameter = 0.3f;
     private Vector3 resizeVector;
@@ -12,7 +14,7 @@ public class ButtonBehaviourScripts : MonoBehaviour {
         resizeVector = new Vector3(resizeParameter, resizeParameter, 0f);
     }
 
-    public void OnPointerEnter()
+    public override void OnPointerEnter(PointerEventData data)
     {
         if (transform.localScale.Equals(Vector3.one))
         {
@@ -20,8 +22,14 @@ public class ButtonBehaviourScripts : MonoBehaviour {
         }
     }
 
-    public void OnPointerExit()
+    public override void OnPointerExit(PointerEventData data)
     {
         transform.localScale = Vector3.one;
+    }
+
+    public override void OnPointerClick(PointerEventData eventData)
+    {
+        GameObject.FindGameObjectWithTag("PanelSettings")
+                .GetComponent<PanelSettingsScript>().Clicked();
     }
 }

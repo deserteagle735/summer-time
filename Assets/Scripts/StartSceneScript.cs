@@ -17,7 +17,7 @@ public class StartSceneScript : MonoBehaviour {
 
     public void ButtonBackOnClick()
     {
-        panelSettings.SetActive(false);
+        
         panelStart.SetActive(true);
     }
 
