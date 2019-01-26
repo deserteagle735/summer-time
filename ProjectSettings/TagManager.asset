@@ -8,6 +8,7 @@ TagManager:
   - SoundEffectSource
   - BackgroundMusicSource
   - AudioObject
+  - ScriptObject
   layers:
   - Default
   - TransparentFX

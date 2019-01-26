@@ -81,8 +81,13 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AudioSourceScript.cs" />
     <Compile Include="Assets\Scripts\ButtonBehaviourScripts.cs" />
+    <Compile Include="Assets\Scripts\ButtonLevel.cs" />
+    <Compile Include="Assets\Scripts\Card.cs" />
+    <Compile Include="Assets\Scripts\GameManagerScript.cs" />
+    <Compile Include="Assets\Scripts\LevelManagerScript.cs" />
     <Compile Include="Assets\Scripts\PanelSettingsScript.cs" />
     <Compile Include="Assets\Scripts\PathSceneScript.cs" />
+    <Compile Include="Assets\Scripts\Score.cs" />
     <Compile Include="Assets\Scripts\Sound.cs" />
     <Compile Include="Assets\Scripts\StartSceneScript.cs" />
     <Compile Include="Assets\Scripts\TKLibs\Mathfx.cs" />

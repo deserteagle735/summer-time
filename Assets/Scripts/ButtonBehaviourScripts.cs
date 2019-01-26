@@ -27,9 +27,9 @@ public class ButtonBehaviourScripts : EventTrigger
         transform.localScale = Vector3.one;
     }
 
-    public override void OnPointerClick(PointerEventData eventData)
-    {
-        GameObject.FindGameObjectWithTag("PanelSettings")
-                .GetComponent<PanelSettingsScript>().Clicked();
-    }
-}
+    //public override void OnPointerDown(PointerEventData eventData)
+    //{
+    //    GameObject.FindGameObjectWithTag("PanelSettings")
+    //       .GetComponent<PanelSettingsScript>().Clicked();
+    //}
+} 
