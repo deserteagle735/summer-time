@@ -28,7 +28,7 @@ public class GameManagerScript : MonoBehaviour {
     public GameObject[] cards;
     public Sprite[] cardFaces;
     public Sprite cardBack;
-    private List<int> cardsValue;
+    public List<int> Value;
 
     public static int score = 0;
     public float fullTime;
@@ -142,6 +142,7 @@ public class GameManagerScript : MonoBehaviour {
         panelPause.SetActive(false);
         panelSettings.SetActive(false);
         isPlaying = true;
+        Shuffle();
     }
 
     public void Restart()
@@ -152,35 +153,46 @@ public class GameManagerScript : MonoBehaviour {
 
     private void Shuffle()
     {
-        for (int i = 0; i < cards.Length; i++)
+        Value.Clear();
+        int k = 0;
+        for (int i = 0; i < cards.Length; i += 2)
         {
-            cardsValue.Add(i % cardFaces.Length);
+            Value.Add(k);
+            Value.Add(k);
+            k = (k + 1) % cardFaces.Length;
         }
 
-        //System.Random rand = new System.Random();
+        System.Random rand = new System.Random();
 
-        //for (int i = 0; i < cardsValue.Count; i++)
-        //{
-        //    int r = i + rand.Next(cards.Length - i);
-
-        //    int temp = cardsValue[r];
-        //    cardsValue[r] = cardsValue[i];
-        //    cardsValue[i] = temp;
-        //}
-
+        for (int i = Value.Count - 1; i > 0; i--)
+        {
+            int j = rand.Next(0, i + 1);
+            int temp = Value[i];
+            Value[i] = Value[j];
+            Value[j] = temp;
+        }
         for (int i = 0; i < cards.Length; i++)
         {
-            cards[i].GetComponent<Card>().cardValue = cardsValue[i];
+            cards[i].GetComponent<Card>().cardValue = Value[i];
+            cards[i].GetComponent<Card>().SetupCard();
         }
+    }
 
-        foreach (GameObject c in cards)
-            c.GetComponent<Card>().SetupCards();
+    public Sprite GetCardBack()
+    {
+        return cardBack;
+    }
+
+    public Sprite GetCardFace(int i)
+    {
+        return cardFaces[i];
     }
 
     private void Start()
     {
         levelNameText.text = "Level " + levelNumber;
         levelUnlocked = levelNumber + 1;
+        if (levelUnlocked > 9) levelUnlocked = 9;
 
         timeLeft = fullTime;
         _freezeTimeTime = freezeTimeTime;
@@ -190,8 +202,6 @@ public class GameManagerScript : MonoBehaviour {
         starMaxReached = PlayerPrefs.GetInt(stringToSaveStars, 0);
 
         ShowPreLevelStar(starMaxReached);
-        
-        Shuffle();
     }
 
     private void Update()
@@ -209,13 +219,7 @@ public class GameManagerScript : MonoBehaviour {
 
                     }
                 }
-            }
-
-            if (cardsDestroyed == cards.Length)
-            {
-                GameWin();
-            }
-            cardsDestroyed = 0;
+            }            
 
             if (!isFreezing)
             {
@@ -235,7 +239,7 @@ public class GameManagerScript : MonoBehaviour {
                 {
                     _freezeTimeTime = freezeTimeTime;
                     isFreezing = false;
-                    panelGamePlay.GetComponent<Image>().color = 
+                    panelGamePlay.GetComponent<Image>().color =
                         new Color(1.0f, 1.0f, 1.0f, 0.0f);
                 }
             }
@@ -251,8 +255,7 @@ public class GameManagerScript : MonoBehaviour {
                     {
                         if (cards[i].GetComponent<Card>().state != 2)
                         {
-                            cards[i].GetComponent<Card>().GetComponent<Image>().sprite = 
-                                GetCardFace(cards[i].GetComponent<Card>().cardValue);
+                            cards[i].GetComponent<Image>().sprite = cardBack;
                         }
                     }
                 }
@@ -262,14 +265,20 @@ public class GameManagerScript : MonoBehaviour {
             {
                 CheckCard();
             }
+
+            if (cardsDestroyed == cards.Length)
+            {
+                GameWin();
+            }
+            cardsDestroyed = 0;
         }
     }
 
     public void ShowPreLevelStar(int star)
     {
-        if (star > 1) starPreLevel1.SetActive(true);
-        if (star > 2) starPreLevel2.SetActive(true);
-        if (star > 3) starPreLevel3.SetActive(true);
+        if (star > 0) starPreLevel1.SetActive(true);
+        if (star > 1) starPreLevel2.SetActive(true);
+        if (star > 2) starPreLevel3.SetActive(true);
     }
 
     public void GameOver()
@@ -376,18 +385,4 @@ public class GameManagerScript : MonoBehaviour {
         }
     }
 
-    //public int GetCardValue()
-    //{
-    //    return cardsValue[];
-    //}
-
-    public Sprite GetCardBack()
-    {
-        return cardBack;
-    }
-
-    public Sprite GetCardFace(int i)
-    {
-        return cardFaces[i];
-    }
 }

@@ -5,44 +5,33 @@ using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
-    public static bool notFlip = false;
-    [SerializeField]
-    private int _state;
+    public Sprite number;     
+
+    private GameManagerScript manager;
+    private Sprite cardBack;
+    private Sprite cardFace;
     [SerializeField]
     private int _cardValue;
     [SerializeField]
-    private bool _initialized = true;
-
-    public Sprite number;
-
-    private Sprite _cardBack;
-    private Sprite _cardFace;
-
-    private GameObject manager;
-
-    public bool initialized
-    {
-        get { return _initialized; }
-        set { _initialized = value; }
-    }
-
-    public int state
-    {
-        get { return _state; }
-        set { _state = value; }
-    }
-
-    public int cardValue
-    {
-        get { return _cardValue; }
-        set { _cardValue = value; }
-    }
+    private int _state;
+    
+    public int state { get { return _state; } set { _state = value; } }        
+    public int cardValue { get { return _cardValue; } set { _cardValue = value; } }
 
     private void Start()
     {
         _state = 0;
-        manager = GameObject.FindGameObjectWithTag("ScriptObject");
-        if (!manager) Debug.Log("Game Manager not found");
+    }
+
+    public void SetupCard()
+    {
+        //cardBack = manager.GetComponent<GameManagerScript>().GetCardBack();
+        cardBack = GameObject.FindGameObjectWithTag("ScriptObject")
+                        .GetComponent<GameManagerScript>().GetCardBack();
+        //cardFace = manager.GetComponent<GameManagerScript>().GetCardFace(_cardValue);
+        cardFace = GameObject.FindGameObjectWithTag("ScriptObject")
+                        .GetComponent<GameManagerScript>().GetCardFace(_cardValue);
+        _state = 0;
     }
 
     public void FlipCard()
@@ -50,20 +39,13 @@ public class Card : MonoBehaviour
         if (_state == 0)
         {
             _state = 1;
-            this.GetComponent<Card>().GetComponent<Image>().sprite = _cardFace;
+            GetComponent<Image>().sprite = cardFace;
         }
-        else if (_state == 1)
+        else if (_state == 1 || _state == 3)
         {
             _state = 0;
-            this.GetComponent<Card>().GetComponent<Image>().sprite = _cardBack;
+            GetComponent<Image>().sprite = cardBack;
         }
-    }
-
-    public void SetupCards()
-    {
-        //_cardValue = manager.GetComponent<GameManagerScript>().GetCardValue();
-        _cardBack = manager.GetComponent<GameManagerScript>().GetCardBack();
-        _cardFace = manager.GetComponent<GameManagerScript>().GetCardFace(_cardValue);
     }
 
     public void DestroyAnimation()
@@ -83,21 +65,14 @@ public class Card : MonoBehaviour
 
     public void FalseCheck()
     {
-
         StartCoroutine(Pause());
     }
 
     IEnumerator Pause()
     {
-        yield return new WaitForSeconds(0.5f);
-        if (_state == 0)
-        {
-            GetComponent<Image>().sprite = _cardBack;
-        }
-        else if (_state == 1)
-        {
-            GetComponent<Image>().sprite = _cardFace;
-        }
+        _state = 3;
+        yield return new WaitForSeconds(0.3f);
+        FlipCard();
     }
 
     public void RevealAnim(float time)
@@ -106,8 +81,9 @@ public class Card : MonoBehaviour
     }
     IEnumerator reveal(float time)
     {
-        GetComponent<Image>().sprite = _cardFace;
+        GetComponent<Image>().sprite = cardFace;
         yield return new WaitForSeconds(time);
-        GetComponent<Image>().sprite = _cardBack;
+        GetComponent<Image>().sprite = cardBack;
+        GetComponent<Image>().sprite = cardBack;
     }
 }

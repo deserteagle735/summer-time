@@ -8,6 +8,11 @@ public class Score : MonoBehaviour
 
     public Text scoreHolder;
 
+    private void Start()
+    {
+        GameManagerScript.score = 0;
+    }
+
     private void Update()
     {
         scoreHolder.text = GameManagerScript.score.ToString();

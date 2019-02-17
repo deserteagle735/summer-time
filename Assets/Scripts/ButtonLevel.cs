@@ -4,11 +4,7 @@ using UnityEngine.EventSystems;
 
 public class ButtonLevel : Button {
 
-    public Text textLevel;
     public int unlocked;
-    public GameObject imageStar1;
-    public GameObject imageStar2;
-    public GameObject imageStar3;
 
     private string _thisLevel;
 

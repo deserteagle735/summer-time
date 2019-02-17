@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\AudioSourceScript.cs" />
     <Compile Include="Assets\Scripts\ButtonBehaviourScripts.cs" />
     <Compile Include="Assets\Scripts\ButtonLevel.cs" />
+    <Compile Include="Assets\Scripts\ButtonLevelScript.cs" />
     <Compile Include="Assets\Scripts\Card.cs" />
     <Compile Include="Assets\Scripts\GameManagerScript.cs" />
     <Compile Include="Assets\Scripts\LevelManagerScript.cs" />
