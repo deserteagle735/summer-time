@@ -9,6 +9,11 @@ public class StartSceneScript : MonoBehaviour {
     public Button buttonPlay;
     public Button buttonSettings;
 
+    private void Start()
+    {
+        AudioManagerScript.instance.Play("BackgroundMusic");
+    }
+
     public void ButtonSettingsOnClick()
     {
         panelStart.SetActive(false);

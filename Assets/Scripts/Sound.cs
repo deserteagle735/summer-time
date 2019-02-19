@@ -17,4 +17,6 @@ public class Sound {
 
     //[HideInInspector]
     public AudioSource source;
+
+    public int type;
 }

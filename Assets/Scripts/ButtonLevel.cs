@@ -10,14 +10,9 @@ public class ButtonLevel : Button {
 
     public override void OnPointerClick(PointerEventData eventData)
     {
-        //PlayClickSound();
+        AudioManagerScript.instance.Clicked();
         base.OnPointerClick(eventData);
         TKSceneManager.ChangeScene(thisLevel);
-    }
-    public void PlayClickSound()
-    {
-        GameObject.FindGameObjectWithTag("PanelSettings")
-                .GetComponent<PanelSettingsScript>().Clicked();
     }
 
     public string thisLevel

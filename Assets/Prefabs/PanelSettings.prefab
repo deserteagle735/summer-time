@@ -483,7 +483,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 224759213215169672}
   m_HandleRect: {fileID: 224018995869354848}
   m_Direction: 0
-  m_MinValue: -25
+  m_MinValue: -20
   m_MaxValue: 0
   m_WholeNumbers: 0
   m_Value: -5
@@ -623,9 +623,9 @@ MonoBehaviour:
   m_FillRect: {fileID: 224633103314983658}
   m_HandleRect: {fileID: 224699021414333272}
   m_Direction: 0
-  m_MinValue: -25
+  m_MinValue: -20
   m_MaxValue: 0
-  m_WholeNumbers: 1
+  m_WholeNumbers: 0
   m_Value: -5
   m_OnValueChanged:
     m_PersistentCalls:
@@ -903,20 +903,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491d679cbb9f7bb4794a0511a285d052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
-  - name: BackgroundMusic
-    clip: {fileID: 8300000, guid: 05b9a9ede0796564f91b57572ae9d5a0, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: Clicked
-    clip: {fileID: 8300000, guid: cc2e3cb7cde27ad4e8278e782f3eaf63, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  audioMixer: {fileID: 24100000, guid: 56c35dd34ada3404ca01fca5e29cd889, type: 2}
   backroundMusicSlider: {fileID: 114323300770968610}
   soundEffectSlider: {fileID: 114111402174464054}
   backroundMusicToggle: {fileID: 114466060134636862}

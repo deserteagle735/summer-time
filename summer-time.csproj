@@ -79,7 +79,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\AudioSourceScript.cs" />
+    <Compile Include="Assets\Scripts\AudioManagerScript.cs" />
     <Compile Include="Assets\Scripts\ButtonBehaviourScripts.cs" />
     <Compile Include="Assets\Scripts\ButtonLevel.cs" />
     <Compile Include="Assets\Scripts\ButtonLevelScript.cs" />

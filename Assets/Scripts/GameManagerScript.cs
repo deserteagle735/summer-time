@@ -188,6 +188,13 @@ public class GameManagerScript : MonoBehaviour {
         return cardFaces[i];
     }
 
+    private void Awake()
+    {
+        starGameWin1.SetActive(false);
+        starGameWin2.SetActive(false);
+        starGameWin3.SetActive(false);
+    }
+
     private void Start()
     {
         levelNameText.text = "Level " + levelNumber;
@@ -383,6 +390,11 @@ public class GameManagerScript : MonoBehaviour {
             freezeTimeCount--;
             freezeTimeText.text = "x " + freezeTimeCount;
         }
+    }
+
+    public void OutOfLevel()
+    {
+        TKSceneManager.ChangeScene("PathScene");
     }
 
 }

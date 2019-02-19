@@ -5,6 +5,7 @@ using UnityEngine;
 public class PathSceneScript : MonoBehaviour {
 
     public GameObject panelSettings;
+    public GameObject panelReset;
 
 	public void ButtonBackClicked()
     {
@@ -19,5 +20,21 @@ public class PathSceneScript : MonoBehaviour {
     public void ButtonBackInSettingsClicked()
     {
         panelSettings.gameObject.SetActive(false);
+    }
+
+    public void ButtonResetAllClicked()
+    {
+        panelReset.SetActive(true);
+    }
+
+    public void ButtonYESClicked()
+    {
+        GetComponent<LevelManagerScript>().Reset();
+        panelReset.SetActive(false);
+    }
+
+    public void ButtonNOClicked()
+    {
+        panelReset.SetActive(false);
     }
 }

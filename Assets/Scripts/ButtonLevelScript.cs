@@ -35,4 +35,11 @@ public class ButtonLevelScript : MonoBehaviour {
             imageStar.GetComponent<Image>().sprite = imageStar3;
         }
     }
+
+    public void ResetButton()
+    {
+        imageLock.SetActive(true);
+        imageStar.GetComponent<Image>().sprite = imageStar0;
+        imageStar.SetActive(false);
+    }
 }

@@ -5,10 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - PanelSettings
-  - SoundEffectSource
-  - BackgroundMusicSource
-  - AudioObject
   - ScriptObject
+  - AudioManager
   layers:
   - Default
   - TransparentFX
