@@ -746,7 +746,7 @@ Camera:
   m_GameObject: {fileID: 1167659601}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 4
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -892,52 +892,52 @@ Prefab:
     - target: {fileID: 224759213215169672, guid: 536ffc3f4f1714e4b8e3602ffee4c28f,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 224759213215169672, guid: 536ffc3f4f1714e4b8e3602ffee4c28f,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224018995869354848, guid: 536ffc3f4f1714e4b8e3602ffee4c28f,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 224018995869354848, guid: 536ffc3f4f1714e4b8e3602ffee4c28f,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 224018995869354848, guid: 536ffc3f4f1714e4b8e3602ffee4c28f,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224633103314983658, guid: 536ffc3f4f1714e4b8e3602ffee4c28f,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 224633103314983658, guid: 536ffc3f4f1714e4b8e3602ffee4c28f,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224699021414333272, guid: 536ffc3f4f1714e4b8e3602ffee4c28f,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 224699021414333272, guid: 536ffc3f4f1714e4b8e3602ffee4c28f,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 224699021414333272, guid: 536ffc3f4f1714e4b8e3602ffee4c28f,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 536ffc3f4f1714e4b8e3602ffee4c28f, type: 2}
