@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class StartSceneScript : MonoBehaviour {
     public GameObject panelStart;
     public GameObject panelSettings;
+    public GameObject panelQuit;
     public Button buttonPlay;
     public Button buttonSettings;
 
@@ -31,5 +32,18 @@ public class StartSceneScript : MonoBehaviour {
         TKSceneManager.ChangeScene("PathScene");
     }
 
- 
+    public void ButtonQuit()
+    {
+        panelQuit.SetActive(true);
+    }
+
+    public void ButtonQuitYes()
+    {
+        Application.Quit();
+    }
+
+    public void ButtonQuitNo()
+    {
+        panelQuit.SetActive(false);
+    }
 }
